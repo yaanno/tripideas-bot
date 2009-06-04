@@ -1,13 +1,22 @@
 
 {% for item in messages.items reversed %}
 
-<p><strong>{{ item.1.user.name }} ({{ item.1.user.screen_name }})</strong> at <em>{{ item.1.created_at }}</em> wrote: {{ item.1.text }}</p>
+
+{% ifequal item.1.user.screen_name "tripideas" %}
+
+  <p><em>RESP:</em> <strong>{{ item.1.user.name }} ({{ item.1.user.screen_name }})</strong> at <em>{{ item.1.created_at }}</em> wrote: {{ item.1.text }}</p>
+
+{% else %}
+
+  <p><em>REQ: </em> <strong>{{ item.1.user.name }} ({{ item.1.user.screen_name }})</strong> at <em>{{ item.1.created_at }}</em> wrote: {{ item.1.text }}</p>
+{% endifequal %}
+
 
 {% endfor %}
 
 
 <div>
-<textarea cols="120" rows="10">
+<textarea cols="120" rows="10" style="display:none">
 {% debug %}
 </textarea>
 </div>
