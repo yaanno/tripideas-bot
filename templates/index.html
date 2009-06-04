@@ -1,0 +1,13 @@
+
+{% for item in messages.items reversed %}
+
+<p><strong>{{ item.1.user.name }} ({{ item.1.user.screen_name }})</strong> at <em>{{ item.1.created_at }}</em> wrote: {{ item.1.text }}</p>
+
+{% endfor %}
+
+
+<div>
+<textarea cols="120" rows="10">
+{% debug %}
+</textarea>
+</div>
