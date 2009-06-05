@@ -14,6 +14,7 @@ from google.appengine.ext.webapp import template
 from modules import twitter as t
 from modules import simplejson as j
 from modules import kayak as k
+from modules.xml2dict import *
 
 twitter = t.Twitter("tripideas","stledi6v", format="json")
 kayak = k.Kayak(SETTINGS['API_KEY'], SETTINGS['BASE_URL'])
@@ -35,16 +36,22 @@ class ApiHandler(webapp.RequestHandler):
     kayak_session = kayak.get_session()
     self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % kayak_session)
     
-    p = re.search("sid>(.*)</sid", kayak_session)
-    p = p.group(1)
-    self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % p)
+    xml = XML2Dict()
+    sid = xml.fromstring(kayak_session)
+    sid = sid["ident"]["sid"]
+    self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % sid)
+    
+    kayak_search = kayak.post_search(sid)
+    self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % kayak_search)
     
     '''
-    kayak_session = xml.etree.ElementTree.XML(kayak_session)
-    m = kayak_session.items()
-    out = kayak_session
-    self.response.out.write('<textarea> %s </textarea>' % m)
-    self.response.out.write('<textarea> %s </textarea>' % out)
+    xml = XML2Dict()
+    s = xml.fromstring(kayak_search)
+    s = s["search"]["searchid"]
+    self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % s)
+    
+    kayak_results = kayak.get_results(sid, s)
+    self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % kayak_results)
     '''
 
 def main():
@@ -53,7 +60,7 @@ def main():
   ('/api', ApiHandler)
   ], debug=True)
   wsgiref.handlers.CGIHandler().run(application)
-
+'''
 import types
 import pprint
 
@@ -66,6 +73,35 @@ def getMethods(object):
             #print "method:", m
             methods.append(m)
     return methods
-
+'''
 if __name__ == '__main__':
   main()
+
+  
+  
+  
+  '''
+dict = {'search': 
+{'url': 
+{'value': '![CDATA[http://www.kayak.com/s/basic?apimode=1&searchid=HuCGR1&c=10]]'},
+ 'searchid': {'value': 'HuCGR1'},
+ 'value': ''}
+} 
+  
+  
+  '''
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
