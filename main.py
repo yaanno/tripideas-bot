@@ -47,10 +47,10 @@ class ApiHandler(webapp.RequestHandler):
     searchid = re.search('searchid>(.*)</searchid', kayak_search)
     searchid = searchid.group(1)
     self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % searchid)
-
+    '''
     kayak_results = kayak.get_results(sid, searchid)
     self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % kayak_results)
-
+    '''
 
 def main():
   application = webapp.WSGIApplication([
