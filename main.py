@@ -44,15 +44,13 @@ class ApiHandler(webapp.RequestHandler):
     kayak_search = kayak.post_search(sid)
     self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % kayak_search)
     
-    '''
-    xml = XML2Dict()
-    s = xml.fromstring(kayak_search)
-    s = s["search"]["searchid"]
-    self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % s)
-    
-    kayak_results = kayak.get_results(sid, s)
+    searchid = re.search('searchid>(.*)</searchid', kayak_search)
+    searchid = searchid.group(1)
+    self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % searchid)
+
+    kayak_results = kayak.get_results(sid, searchid)
     self.response.out.write('<textarea cols="50" rows="10"> %s </textarea>' % kayak_results)
-    '''
+
 
 def main():
   application = webapp.WSGIApplication([
@@ -76,32 +74,3 @@ def getMethods(object):
 '''
 if __name__ == '__main__':
   main()
-
-  
-  
-  
-  '''
-dict = {'search': 
-{'url': 
-{'value': '![CDATA[http://www.kayak.com/s/basic?apimode=1&searchid=HuCGR1&c=10]]'},
- 'searchid': {'value': 'HuCGR1'},
- 'value': ''}
-} 
-  
-  
-  '''
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  

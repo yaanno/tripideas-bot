@@ -14,10 +14,10 @@ class Api(object):
   
   def post_search(self,sid):
     oneway = "n"
-    origin = "LON"
-    destination = "MAD"
+    origin = "MAD"
+    destination = "PAR"
     destcode = ""
-    depart_date = "06/20/2009"
+    depart_date = "06/19/2009"
     depart_time = "a"
     return_date = "06/26/2009"
     return_time = "a"
@@ -42,26 +42,10 @@ class Api(object):
       sid,
       version
     ))
-    return url
-    #result = urlfetch.fetch(url)
-    #return result.content
-  '''
-  /s/apisearch?
-    basicmode=true&
-    oneway=n&
-    origin=BOS&
-    destination=SFO&
-    destcode=&
-    depart_date=04/09/2006&
-    depart_time=a&
-    return_date=04/13/2006&
-    return_time=a&
-    travelers=2&
-    cabin=b&
-    action=doflights&
-    apimode=1&
-    _sid_=1-kjdfsh2iu3d888823
-  '''
+    #return url
+    result = urlfetch.fetch(url)
+    return result.content
+
   def get_results(self, sid, searchid):
     searchid = searchid
     sid = sid
