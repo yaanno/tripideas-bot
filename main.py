@@ -28,7 +28,7 @@ class MainHandler(webapp.RequestHandler):
     path = os.path.join(os.path.dirname(__file__), 'templates/index.html')
     self.response.out.write(template.render(path, mydict))
 
-class ApiHandler(webapp.RequestHandler):
+class CronHandler(webapp.RequestHandler):
   def get(self):
     pass
     
@@ -36,7 +36,7 @@ class ApiHandler(webapp.RequestHandler):
 def main():
   application = webapp.WSGIApplication([
   ('/', MainHandler),
-  ('/api', ApiHandler)
+  ('/cron', CronHandler),
   ], debug=True)
   wsgiref.handlers.CGIHandler().run(application)
 
