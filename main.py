@@ -1,20 +1,3 @@
-'''
-SETTINGS = {
-  'Kayak': {
-    'BASE_URL' : 'http://api.kayak.com',
-    'API_TOKEN' : 'J4u2pGhCXG_weKCEzKVdHQ',
-  },
-  'Cleartrip' : {
-    'BASE_URL' : 'http://api.staging.cleartrip.com/air/1.0/search',
-    'API_KEY' : '811e539ed2bb674449d3fc776b7c70ce',
-  },
-  'Tripideas' : {
-    'username' : 'tripideas',
-    'password' : 'stledi6v',
-    'format' : 'json',
-  }
-}
-'''
 import os
 from settings import *
 import wsgiref.handlers
