@@ -78,7 +78,6 @@ class KayakApi(webapp.RequestHandler):
       result_set = kayak_results.content
       logging.debug(kayak_results.content)
       
-    #self.response.out.write('<div style="float:left"><label>Search results:</label><br><textarea cols="80" rows="20">%s</textarea></div>' % result_set)
     content = replace(result_set, '&', '&amp;')
     xml = XML2Dict()
     trips = xml.fromstring(content)

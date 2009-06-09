@@ -22,7 +22,7 @@ class Api(object):
   def post_search(self):
     basicmode = 'true'
     oneway = 'n'
-    origin = "MIL"
+    origin = "PAR"
     destination = "LON"
     destcode = ""
     depart_date = "06/19/2009"
@@ -49,13 +49,13 @@ class Api(object):
   def get_results(self):
     sid = self.session_id
     searchid = self.search_id
-    c = "100"
+    c = "20"
     version = "1"
     apimode  = "1"
     mode = ""
     sort = "price"
     direction = "up"
-    url = (self.domain + '/s/apibasic/flight?searchid=%s&apimode=%s&_sid_=%s' % (searchid, apimode, sid))
+    url = (self.domain + '/s/apibasic/flight?searchid=%s&c=%s&d=%s&s=%s&apimode=%s&_sid_=%s' % (searchid, c, direction, sort, apimode, sid))
     result = urlfetch.fetch(
       url=url,
       method=self.method, 
