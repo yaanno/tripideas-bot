@@ -13,17 +13,17 @@ class Api(object):
   def __init__(self, api_token, domain):
     self.api_token = api_token,
     self.domain = domain
-  
+
   def get_session(self):
     url = (self.domain + '/k/ident/apisession?token=%s' % self.api_token)
     result = urlfetch.fetch(url=url, method=urlfetch.GET, deadline=10, follow_redirects=False)
     return result
-  
+
   def post_search(self):
     basicmode = 'true'
     oneway = 'n'
-    origin = "MAD"
-    destination = "PAR"
+    origin = "MIL"
+    destination = "LON"
     destcode = ""
     depart_date = "06/19/2009"
     depart_time = "a"
@@ -46,16 +46,15 @@ class Api(object):
       follow_redirects=self.follow_redirects)
     return result
     
-    
   def get_results(self):
     sid = self.session_id
     searchid = self.search_id
-    c = "10"
+    c = "100"
     version = "1"
     apimode  = "1"
     mode = ""
     sort = "price"
-    direction = "down"
+    direction = "up"
     url = (self.domain + '/s/apibasic/flight?searchid=%s&apimode=%s&_sid_=%s' % (searchid, apimode, sid))
     result = urlfetch.fetch(
       url=url,
@@ -64,10 +63,6 @@ class Api(object):
       deadline=self.deadline,
       follow_redirects=self.follow_redirects)
     return result
-
-  def cycle_poll(self, result_set):
-    pass
-
 
 class KayakError:
   pass

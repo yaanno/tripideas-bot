@@ -1,23 +1,24 @@
 import os
 import re
+import logging
+import time
 from settings import *
 import wsgiref.handlers
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 
+from modules.xml2dict import *
 from modules import twitter as tw
-
-'''
+from modules import kayak
 from modules import simplejson as j
-'''
+
+from string import replace
 
 twitter = tw.Twitter(
   SETTINGS['Tripideas']['username'], 
   SETTINGS['Tripideas']['password'], 
   format=SETTINGS['Tripideas']['format']
 )
-
-from modules import kayak
 
 kayak = kayak.Kayak(
   SETTINGS['Kayak']['API_TOKEN'],
@@ -46,6 +47,7 @@ class KayakApi(webapp.RequestHandler):
   def get(self):
     
     kayak_session = kayak.get_session()
+    logging.debug(kayak_session.content)
     
     session_id = re.search('<sid>(.*?)</sid>', kayak_session.content)
     session_id = session_id.group(1)
@@ -54,39 +56,76 @@ class KayakApi(webapp.RequestHandler):
     kayak.headers = { 'Cookie' : kayak_session.headers['set-cookie'] }
     
     kayak_search = kayak.post_search()
-    
-    #self.response.out.write('<div style="float:left"><label>Get search:</label><br><textarea cols="50" rows="10">%s</textarea></div>' % kayak_search.content)
-    
+    logging.debug(kayak_search.content)
     
     search_id = re.search('<searchid>(.*?)</searchid>', kayak_search.content)
     search_id = search_id.group(1)
     
-    #self.response.out.write('<div style="float:left"><label>Search ID:</label><br><textarea cols="50" rows="10">%s</textarea></div>' % search_id)
-    
     kayak.search_id = search_id
     kayak_results = kayak.get_results()
-    
-    self.response.out.write('<div style="float:left"><label>Search results:</label><br><textarea cols="50" rows="10">%s</textarea></div>' % kayak_results.content)
+    logging.debug(kayak_results.content)
 
-    result_set = []
- 
-    more_pending = re.search('<morepending>true</morepending>',kayak_results.content)
+    result_set = ''
+
+    more_pending = re.search('<morepending>true</morepending>', kayak_results.content)
     
     if more_pending.group(0) is not None:
       more_pending = True
     
     if more_pending:
-      kayak.cycle_poll(result_set)
-      
+      time.sleep(10)
       kayak_results = kayak.get_results()
-      result_set.append(kayak_results.content)
+      result_set = kayak_results.content
+      logging.debug(kayak_results.content)
       
-    self.response.out.write('<div style="float:left"><label>Search results:</label><br><textarea cols="50" rows="10">%s</textarea></div>' % result_set)
+    #self.response.out.write('<div style="float:left"><label>Search results:</label><br><textarea cols="80" rows="20">%s</textarea></div>' % result_set)
+    content = replace(result_set, '&', '&amp;')
+    xml = XML2Dict()
+    trips = xml.fromstring(content)
+    trip_dict = {'trips' : trips}
+    path = os.path.join(os.path.dirname(__file__), 'templates/kayak.html')
+    self.response.out.write(template.render(path, trip_dict))
 
-
+class KayakHandler(webapp.RequestHandler):
+  
+  def get(self):
+    file = open('kayak-result.xml','r')
+    content = file.read()
+    content = replace(content, '&', '&amp;')
+    xml = XML2Dict()
+    trips = xml.fromstring(content)
+    trip_dict = {'trips' : trips}
+    '''
+    xml = ET.fromstring(content)
+    trips = xml.findall("trips/trip")
+    trip_dict = {'trips' : trips}
+    '''
+    path = os.path.join(os.path.dirname(__file__), 'templates/kayak.html')
+    self.response.out.write(template.render(path, trip_dict))
+    
+class ClearTripHandler(webapp.RequestHandler):
+  
+  def get(self):
+    file = open('result.xml','r')
+    content = file.read()
+    content = replace(content, '&', '&amp;')
+    xml = XML2Dict()
+    trips = xml.fromstring(content)
+    trip_dict = {'trips' : trips}
+    '''
+    xml = ET.fromstring(content)
+    trips = xml.findall("trips/trip")
+    trip_dict = {'trips' : trips}
+    '''
+    path = os.path.join(os.path.dirname(__file__), 'templates/cleartrip.html')
+    self.response.out.write(template.render(path, trip_dict))
+    
 def main():
+  logging.getLogger().setLevel(logging.DEBUG)
   application = webapp.WSGIApplication([
   ('/', MainHandler),
+  ('/kayak', KayakHandler),
+  ('/cleartrip', ClearTripHandler),
   ('/cron', CronHandler),
   ('/api/kayak', KayakApi)
   ], debug=True)
