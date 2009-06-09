@@ -7,21 +7,19 @@ class Scheduler:
     pass
   
   '''
-  schedule method should handle all jobs in the queue
+  The schedule method all jobs in the queue
   '''
   def schedule(self, queue):
     for job in queue.queued_jobs:
       if job.state == 'pending':
-        
         try:
           probe = job.run()
           if probe != 'ok':
             print probe
-            job.pending()
           else:
+            queue.remove(job)
             job.complete()
         except:
-          print probe
           job.pending()
 
 class Queue:
@@ -32,20 +30,18 @@ class Queue:
     self.queued_jobs = []
   
   '''
-  add method should add a job to the queue
+  The add method adds a new job to the queue
   '''
   def add(self, jobs):
-    #print 'new jobs added to queue and set to pending: '
     for job in jobs:
-      self.queued_jobs.append(job)
       job.pending()
+      self.queued_jobs.append(job)
   
   '''
-  remove method should remove a job from the queue
+  The remove method removes a job from the queue
   '''
   def remove(self, job):
-    #print 'job removed from queue: ' + str(job)
-    pass
+    self.queued_jobs.remove(job)
   
 
 class Job:
@@ -56,19 +52,17 @@ class Job:
   def __init__(self, task):
     self.state = 'new'
     self.task = task
-    #print 'new job object: ' + str(self) + ' with state: ' + str(self.state)
-    
+
+  '''
+  The run method executes arbitrary Python code (task) passed as argument
+  '''
   def run(self):
-    #print 'trying to run: ' + str(self)
     try:
-      result = eval(self.task)
-      print 'The result from task >> ' + str(self.task) + ' << is ' +  str(result)
+      print self.task.code
+      result = eval(self.task.code)
       e = 'ok'
     except:
       e = sys.exc_info()[0]
-      #print 'i cannot run: ' + str(self)
-      #print 'cause: ', e
-      #raise
     return e
   
   '''
@@ -76,42 +70,16 @@ class Job:
   '''
   def pending(self):
     self.state = 'pending'
-    #print 'job is pending: ' + str(self)
   
   '''
   completed method should set the job's state property to completed
   '''
   def completed(self):
     self.state = 'completed'
-    #print 'job completed: ' + str(self)
 
 class Task:
-
-  def __init__(self):
-    pass
-
-if __name__ == '__main__':
   
-  s = Scheduler()
-  
-  task1 = '10 / 0'
-  task2 = '100 * 5'
-  
-  j = Job(task1)
-  j2 = Job(task2)
-  
-  q = Queue()
-  
-  q.add([ j, j2 ])
-  
-  s.schedule( q )
+  code = object
 
-
-
-
-
-
-
-
-
-
+  def __init__(self, code):
+    self.code = code

@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<searchresult>
+  <searchinstance></searchinstance>
+  <searchid>FlvJ0D</searchid>
+  <count>9</count>
+  <morepending>true</morepending>
+<!-- api results -->
+   <trips>
+             <trip id="08d15198c83f736f8970a8abffd92282">
+        <price url="/book/flight?code=0-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 10:30</depart>
+            <arrive>2009/06/19 15:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>300</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1700</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 10:30</dt>
+              <o>MAD</o>
+              <at>2009/06/19 13:05</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1237</flight>
+              <duration_minutes>80</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 14:10</dt>
+              <o>AMS</o>
+              <at>2009/06/19 15:30</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 10:25</depart>
+            <arrive>2009/06/26 15:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>305</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1230</flight>
+              <duration_minutes>85</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 10:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 11:50</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1703</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 12:55</dt>
+              <o>AMS</o>
+              <at>2009/06/26 15:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+                   <trip id="c9a2dd37c84c0d6019e539ec26bf1988">
+        <price url="/book/flight?code=3-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 08:25</depart>
+            <arrive>2009/06/19 13:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>305</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1698</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 08:25</dt>
+              <o>MAD</o>
+              <at>2009/06/19 11:00</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1233</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 12:15</dt>
+              <o>AMS</o>
+              <at>2009/06/19 13:30</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 10:25</depart>
+            <arrive>2009/06/26 15:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>305</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1230</flight>
+              <duration_minutes>85</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 10:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 11:50</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1703</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 12:55</dt>
+              <o>AMS</o>
+              <at>2009/06/26 15:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+                   <trip id="5d16a548f2d11caa478c530384f8b86e">
+        <price url="/book/flight?code=1-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 10:30</depart>
+            <arrive>2009/06/19 15:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>300</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1700</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 10:30</dt>
+              <o>MAD</o>
+              <at>2009/06/19 13:05</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1237</flight>
+              <duration_minutes>80</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 14:10</dt>
+              <o>AMS</o>
+              <at>2009/06/19 15:30</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 14:25</depart>
+            <arrive>2009/06/26 20:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>365</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1234</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 14:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 15:40</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1705</flight>
+              <duration_minutes>150</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 18:00</dt>
+              <o>AMS</o>
+              <at>2009/06/26 20:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+                   <trip id="e393e653f93e83f60a794c1e0d75d8cc">
+        <price url="/book/flight?code=4-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 08:25</depart>
+            <arrive>2009/06/19 13:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>305</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1698</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 08:25</dt>
+              <o>MAD</o>
+              <at>2009/06/19 11:00</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1233</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 12:15</dt>
+              <o>AMS</o>
+              <at>2009/06/19 13:30</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 14:25</depart>
+            <arrive>2009/06/26 20:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>365</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1234</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 14:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 15:40</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1705</flight>
+              <duration_minutes>150</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 18:00</dt>
+              <o>AMS</o>
+              <at>2009/06/26 20:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+                   <trip id="c77b8144404b34d7005cad988274b109">
+        <price url="/book/flight?code=6-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 13:35</depart>
+            <arrive>2009/06/19 20:00</arrive>
+            <stops>1</stops>
+            <duration_minutes>385</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1702</flight>
+              <duration_minutes>165</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 13:35</dt>
+              <o>MAD</o>
+              <at>2009/06/19 16:20</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1241</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 18:45</dt>
+              <o>AMS</o>
+              <at>2009/06/19 20:00</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 10:25</depart>
+            <arrive>2009/06/26 15:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>305</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1230</flight>
+              <duration_minutes>85</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 10:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 11:50</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1703</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 12:55</dt>
+              <o>AMS</o>
+              <at>2009/06/26 15:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+                   <trip id="e2b8128c7a5550ce745c2c7e8a4464e4">
+        <price url="/book/flight?code=2-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 10:30</depart>
+            <arrive>2009/06/19 15:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>300</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1700</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 10:30</dt>
+              <o>MAD</o>
+              <at>2009/06/19 13:05</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1237</flight>
+              <duration_minutes>80</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 14:10</dt>
+              <o>AMS</o>
+              <at>2009/06/19 15:30</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 16:25</depart>
+            <arrive>2009/06/26 23:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>425</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1238</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 16:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 17:40</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1707</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 20:55</dt>
+              <o>AMS</o>
+              <at>2009/06/26 23:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+                   <trip id="28cbc312ca80644084f037a966c935da">
+        <price url="/book/flight?code=5-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 08:25</depart>
+            <arrive>2009/06/19 13:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>305</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1698</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 08:25</dt>
+              <o>MAD</o>
+              <at>2009/06/19 11:00</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1233</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 12:15</dt>
+              <o>AMS</o>
+              <at>2009/06/19 13:30</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 16:25</depart>
+            <arrive>2009/06/26 23:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>425</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1238</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 16:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 17:40</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1707</flight>
+              <duration_minutes>155</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 20:55</dt>
+              <o>AMS</o>
+              <at>2009/06/26 23:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+                   <trip id="e7b7d3ebee8f7087ef2ad8fa988f3fba">
+        <price url="/book/flight?code=7-LI_yU_2Tdl76It6awU56.FlvJ0D.0.F.KL.155880.0&_sid_=15-4jhvoOKScMbET7aoIpIl" currency="USD">1559</price>
+        <legs>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>MAD</orig>
+            <dest>CDG</dest>
+            <depart>2009/06/19 13:35</depart>
+            <arrive>2009/06/19 20:00</arrive>
+            <stops>1</stops>
+            <duration_minutes>385</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1702</flight>
+              <duration_minutes>165</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 13:35</dt>
+              <o>MAD</o>
+              <at>2009/06/19 16:20</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1241</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/19 18:45</dt>
+              <o>AMS</o>
+              <at>2009/06/19 20:00</at>
+              <d>CDG</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+           <leg>
+            <airline>KL</airline>
+            <airline_display>KLM Royal Dutch</airline_display>
+            <orig>CDG</orig>
+            <dest>MAD</dest>
+            <depart>2009/06/26 14:25</depart>
+            <arrive>2009/06/26 20:30</arrive>
+            <stops>1</stops>
+            <duration_minutes>365</duration_minutes>
+            <cabin>Business</cabin>
+            <segment>
+              <airline>KL</airline>
+              <flight>1234</flight>
+              <duration_minutes>75</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 14:25</dt>
+              <o>CDG</o>
+              <at>2009/06/26 15:40</at>
+              <d>AMS</d>
+              <cabin>Business</cabin>
+            </segment>
+            <segment>
+              <airline>KL</airline>
+              <flight>1705</flight>
+              <duration_minutes>150</duration_minutes>
+              <equip>Boeing 737</equip>
+              <miles>-1</miles>
+              <dt>2009/06/26 18:00</dt>
+              <o>AMS</o>
+              <at>2009/06/26 20:30</at>
+              <d>MAD</d>
+              <cabin>Business</cabin>
+            </segment>
+          </leg>
+         </legs>
+      </trip>
+           </trips>
+</searchresult>
+

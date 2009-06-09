@@ -8,11 +8,12 @@ class Api(object):
   
   def get_session(self):
     url = (self.domain + '/k/ident/apisession?token=%s' % self.api_token)
-    result = urlfetch.fetch(url)
-    return result.content
+    result = urlfetch.fetch(url=url, method=urlfetch.GET, deadline=10, follow_redirects=False)
+    return result
   
-  def post_search(self,sid):
-    oneway = "n"
+  def post_search(self,sid,headers):
+    basicmode = 'true'
+    oneway = 'n'
     origin = "MAD"
     destination = "PAR"
     destcode = ""
@@ -22,29 +23,17 @@ class Api(object):
     return_time = "a"
     travelers = "1"
     cabin = "b"
-    action = "doflights"
+    action = "doFlights"
     apimode = "1"
     version = "1"
-    url = (self.domain + '/s/apisearch?basicmode=true&oneway=n&origin=%s&destination=%s&depart_date=%s&depart_time=%s&return_date=%s&return_time=%s&travelers=%s&cabin=%s&action=%s&apimode=%s&_sid_=%s' % (
-      #oneway, 
-      origin, 
-      destination, 
-      #destcode, 
-      depart_date, 
-      depart_time, 
-      return_date, 
-      return_time, 
-      travelers, 
-      cabin, 
-      action, 
-      apimode,
-      sid
-    ))
-    #return url
-    result = urlfetch.fetch(url)
-    return result.content
-
-  def get_results(self, sid, searchid):
+    url = (self.domain + '/s/apisearch?basicmode=%s&oneway=%s&origin=%s&destination=%s&destcode=%s&depart_date=%s&depart_time=%s&return_date=%s&return_time=%s&travelers=%s&cabin=%s&action=%s&apimode=%s&_sid_=%s&version=%s' % (
+      basicmode, oneway, origin, destination, destcode, depart_date, depart_time, return_date, return_time, travelers, cabin, action, apimode, sid, version ))
+    
+    result = urlfetch.fetch(url=url, method=urlfetch.GET, headers=headers, deadline=10,follow_redirects=False)
+    return result
+    
+    
+  def get_results(self, sid, searchid, headers):
     searchid = searchid
     sid = sid
     c = "10"
@@ -54,8 +43,8 @@ class Api(object):
     sort = "price"
     direction = "down"
     url = (self.domain + '/s/apibasic/flight?searchid=%s&apimode=%s&_sid_=%s' % (searchid, apimode, sid))
-    result = urlfetch.fetch(url)
-    return result.content
+    result = urlfetch.fetch(url=url, method=urlfetch.GET, headers=headers, deadline=10,follow_redirects=False)
+    return result
 
 class KayakError:
   pass
