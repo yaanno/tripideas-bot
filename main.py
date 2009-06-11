@@ -14,6 +14,8 @@ from modules import simplejson as j
 
 from string import replace
 
+from models import *
+
 twitter = tw.Twitter(
   SETTINGS['Tripideas']['username'], 
   SETTINGS['Tripideas']['password'], 
@@ -118,7 +120,41 @@ class ClearTripHandler(webapp.RequestHandler):
     '''
     path = os.path.join(os.path.dirname(__file__), 'templates/cleartrip.html')
     self.response.out.write(template.render(path, trip_dict))
+
+class MessageParser(webapp.RequestHandler):
+
+  def get(self):
+    messages = twitter.statuses.mentions()
+    mentions = {'messages':{}}
+    counter = 0
+    for message in messages:
+      msg = re.search('#ping', str(message))
+      if msg is not None:
+        msgout = msg.group(0)
+        if msgout is not None:
+          mentions['messages'][('%s' % counter)] = message
+          counter += 1
+          
+          a = Author(
+            author_id = message['user']['id'],
+            protected = message['user']['protected'],
+            name = message['user']['name'],
+            screen_name = message['user']['screen_name'],
+          )
+          a.put()
+          m = Message(
+            body = message['text'],
+            message_id = message['id'],
+            reply_id = message['in_reply_to_user_id'],
+            author = a
+          )
+          
+          m.put()
+          
     
+    path = os.path.join(os.path.dirname(__file__), 'templates/messages.html')
+    self.response.out.write(template.render(path, mentions))
+
 def main():
   logging.getLogger().setLevel(logging.DEBUG)
   application = webapp.WSGIApplication([
@@ -126,7 +162,8 @@ def main():
   ('/kayak', KayakHandler),
   ('/cleartrip', ClearTripHandler),
   ('/cron', CronHandler),
-  ('/api/kayak', KayakApi)
+  ('/api/kayak', KayakApi),
+  ('/messaging', MessageParser),
   ], debug=True)
   wsgiref.handlers.CGIHandler().run(application)
 

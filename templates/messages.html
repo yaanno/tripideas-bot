@@ -1,0 +1,8 @@
+{% for item in messages.items reversed %}
+{{ item.1 }}
+{% endfor %}
+<div>
+<textarea cols="120" rows="10" style="display:block">
+{{ messages }}
+</textarea>
+</div>
