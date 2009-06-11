@@ -2,25 +2,17 @@ import os
 import re
 import logging
 import time
+from string import replace
 from settings import *
 import wsgiref.handlers
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 
 from modules.xml2dict import *
-from modules import twitter as tw
 from modules import kayak
-from modules import simplejson as j
 
-from string import replace
+from modules.messaging import *
 
-from models import *
-
-twitter = tw.Twitter(
-  SETTINGS['Tripideas']['username'], 
-  SETTINGS['Tripideas']['password'], 
-  format=SETTINGS['Tripideas']['format']
-)
 
 kayak = kayak.Kayak(
   SETTINGS['Kayak']['API_TOKEN'],
@@ -29,6 +21,8 @@ kayak = kayak.Kayak(
 
 class MainHandler(webapp.RequestHandler):
   def get(self):
+    pass
+    '''
     messages = twitter.statuses.mentions()
     mydict = {'messages':{}}
     counter = 0
@@ -38,6 +32,7 @@ class MainHandler(webapp.RequestHandler):
       
     path = os.path.join(os.path.dirname(__file__), 'templates/index.html')
     self.response.out.write(template.render(path, mydict))
+    '''
 
 class CronHandler(webapp.RequestHandler):
   def get(self):
@@ -48,6 +43,10 @@ class KayakApi(webapp.RequestHandler):
 
   def get(self):
     
+    messaging = Messaging()
+    messaging.collect_messages()
+    messaging.process_messages()
+    
     kayak_session = kayak.get_session()
     logging.debug(kayak_session.content)
     
@@ -57,7 +56,12 @@ class KayakApi(webapp.RequestHandler):
     kayak.session_id = session_id
     kayak.headers = { 'Cookie' : kayak_session.headers['set-cookie'] }
     
-    kayak_search = kayak.post_search()
+    kayak_search = kayak.post_search(
+      messaging.mentions['from'],
+      messaging.mentions['to'],
+      messaging.mentions['departure']['day'] + '/' + messaging.mentions['departure']['month'] + '/' + messaging.mentions['departure']['year'],
+      messaging.mentions['retour']['day'] + '/' + messaging.mentions['retour']['month'] + '/' + messaging.mentions['retour']['year']
+    )
     logging.debug(kayak_search.content)
     
     search_id = re.search('<searchid>(.*?)</searchid>', kayak_search.content)
@@ -124,36 +128,14 @@ class ClearTripHandler(webapp.RequestHandler):
 class MessageParser(webapp.RequestHandler):
 
   def get(self):
-    messages = twitter.statuses.mentions()
-    mentions = {'messages':{}}
-    counter = 0
-    for message in messages:
-      msg = re.search('#ping', str(message))
-      if msg is not None:
-        msgout = msg.group(0)
-        if msgout is not None:
-          mentions['messages'][('%s' % counter)] = message
-          counter += 1
-          
-          a = Author(
-            author_id = message['user']['id'],
-            protected = message['user']['protected'],
-            name = message['user']['name'],
-            screen_name = message['user']['screen_name'],
-          )
-          a.put()
-          m = Message(
-            body = message['text'],
-            message_id = message['id'],
-            reply_id = message['in_reply_to_user_id'],
-            author = a
-          )
-          
-          m.put()
-          
     
-    path = os.path.join(os.path.dirname(__file__), 'templates/messages.html')
-    self.response.out.write(template.render(path, mentions))
+    messaging = Messaging()
+    messaging.collect_messages()
+    messaging.process_messages()
+    
+    self.response.out.write(messaging.mentions)
+    
+    
 
 def main():
   logging.getLogger().setLevel(logging.DEBUG)

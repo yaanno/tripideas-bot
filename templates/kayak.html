@@ -10,14 +10,18 @@
       {% for trip in trips.searchresult.trips.trip %}
       <div class="trip-item">
         {% for leg in trip.legs.leg %}
-          <strong class="trip-item-iata" title="{{ leg.depart }}">{{ leg.orig }}</strong> - <strong class="trip-item-iata" title="{{ leg.arrive }}">{{ leg.dest }}</strong>
+          <strong class="trip-item-iata" title="{{ leg.depart }}">{{ leg.orig }}</strong> - 
+          <strong class="trip-item-iata" title="{{ leg.arrive }}">{{ leg.dest }}</strong>
+          <!--
           (Stops:
           {% for segment in leg.segment %}
-             <small class="trip-item-iata" title="{{ segment.dt }}">{{ segment.o }}</small> - <small class="trip-item-iata" title="{{ segment.at }}">{{ segment.d }}</small>
+             <small class="trip-item-iata" title="{{ segment.dt }}">{{ segment.o }}</small> - 
+             <small class="trip-item-iata" title="{{ segment.at }}">{{ segment.d }}</small>
           {% endfor %}
           )
+          -->
         {% endfor %}
-        <a href="http://www.kayak.com{{ trip.price.url }}">{{trip.price.value}} {{trip.price.currency}}</a>
+        <a target="_blank" href="http://www.kayak.com{{ trip.price.url }}">{{trip.price.value}} {{trip.price.currency}}</a>
       </div>
       {% endfor %}
     </div>

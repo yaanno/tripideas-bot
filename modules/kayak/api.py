@@ -19,15 +19,15 @@ class Api(object):
     result = urlfetch.fetch(url=url, method=urlfetch.GET, deadline=10, follow_redirects=False)
     return result
 
-  def post_search(self):
+  def post_search(self,origin,destination,depart_date,return_date):
     basicmode = 'true'
     oneway = 'n'
-    origin = "PAR"
-    destination = "LON"
+    origin = origin
+    destination = destination
     destcode = ""
-    depart_date = "06/19/2009"
+    depart_date = depart_date
     depart_time = "a"
-    return_date = "06/26/2009"
+    return_date = return_date
     return_time = "a"
     travelers = "1"
     cabin = "b"
