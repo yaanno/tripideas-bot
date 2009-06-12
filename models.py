@@ -12,3 +12,18 @@ class Message(db.Model):
   message_id = db.IntegerProperty()
   reply_id = db.IntegerProperty()
   author = db.ReferenceProperty(Author)
+
+class Iata(db.Model):
+  iata = db.StringProperty()
+  city = db.StringProperty()
+  country = db.StringProperty()
+  airport = db.StringProperty()
+
+class Search(db.Model):
+  user = db.ReferenceProperty(Author)
+  message = db.ReferenceProperty(Message)
+
+class Job(db.Model):
+  status = db.StringProperty()
+  
+  

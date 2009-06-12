@@ -10,9 +10,8 @@ from google.appengine.ext.webapp import template
 
 from modules.xml2dict import *
 from modules import kayak
-
 from modules.messaging import *
-
+from modules.cron import *
 
 kayak = kayak.Kayak(
   SETTINGS['Kayak']['API_TOKEN'],
@@ -36,7 +35,10 @@ class MainHandler(webapp.RequestHandler):
 
 class CronHandler(webapp.RequestHandler):
   def get(self):
-    pass
+  
+    cron = Cron()
+    cron.init_scheduler()
+    cron.run()
     
 
 class KayakApi(webapp.RequestHandler):
